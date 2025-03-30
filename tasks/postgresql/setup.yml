@@ -1,0 +1,21 @@
+- name: Set postgres password
+  ansible.builtin.command:
+    cmd: psql
+    stdin: |
+      ALTER ROLE postgres PASSWORD '{{ postgresql.password }}'
+  become: true
+  become_user: postgres
+- name: Collect PostgreSQL info
+  community.postgresql.postgresql_info:
+    login_user: postgres
+    login_password: "{{ postgresql.password }}"
+    filter:
+      - "!settings"
+  register: postgresql_info
+  vars:
+    ansible_python_interpreter: "{{ postgresql.venv_dir }}/bin/python"
+  become: true
+  become_user: postgres
+- name: Debug PostgreSQL info
+  ansible.builtin.debug:
+    var: postgresql_info

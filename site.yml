@@ -1,0 +1,6 @@
+# entrypoint playbook
+
+- name: Setup PostgreSQL
+  hosts: postgresql
+  tasks:
+    - ansible.builtin.import_tasks: tasks/postgresql.yml

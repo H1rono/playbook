@@ -1,0 +1,4 @@
+- ansible.builtin.import_tasks: tasks/postgresql/init.yml
+- ansible.builtin.import_tasks: tasks/postgresql/set_fact.yml
+- ansible.builtin.import_tasks: tasks/postgresql/venv.yml
+- ansible.builtin.import_tasks: tasks/postgresql/setup.yml

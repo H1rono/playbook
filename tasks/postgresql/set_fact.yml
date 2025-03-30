@@ -1,0 +1,17 @@
+- name: Check postgres home directory
+  ansible.builtin.command:
+    argv:
+      - /usr/bin/env
+      - bash
+      - -c
+      - echo ~postgres
+  register: echo_postgres_home
+- name: Set facts
+  ansible.builtin.set_fact:
+    postgresql:
+      home: "{{ echo_postgres_home.stdout }}"
+      venv_dir: "{{ echo_postgres_home.stdout }}/ansible-venv"
+      password: "{{ postgresql.password }}"
+- name: Debug postgresql facts
+  ansible.builtin.debug:
+    msg: "home={{ postgresql.home }}, venv_dir={{ postgresql.venv_dir }}"
