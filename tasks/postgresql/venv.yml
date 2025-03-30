@@ -1,7 +1,7 @@
 - name: Setup postgres venv
   ansible.builtin.pip:
     name:
-      - psycopg2-binary
+      - "psycopg[binary]"
     virtualenv: "{{ postgresql.venv_dir }}"
     virtualenv_command: "{{ ansible_facts.python.executable }} -m venv"
   become: true
