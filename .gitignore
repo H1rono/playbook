@@ -1,0 +1,5 @@
+hosts.yml
+host_vars/
+
+# https://github.com/github/gitignore/blob/86d1826a9f3daf4744e7229a26187f81c081744c/Global/Ansible.gitignore
+*.retry
