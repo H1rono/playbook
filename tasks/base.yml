@@ -1,0 +1,6 @@
+- name: Install base packages
+  ansible.builtin.apt:
+    name:
+      - acl
+      - python3-full
+  become: true
