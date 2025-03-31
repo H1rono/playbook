@@ -9,3 +9,8 @@
   hosts: postgresql
   tasks:
     - ansible.builtin.import_tasks: tasks/postgresql.yml
+
+- name: Setup Docker engine
+  hosts: docker
+  tasks:
+    - ansible.builtin.import_tasks: tasks/docker.yml
