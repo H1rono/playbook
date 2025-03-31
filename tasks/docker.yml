@@ -39,3 +39,5 @@
     append: true
     state: present
   become: true
+- name: Reconnect
+  ansible.builtin.meta: reset_connection
